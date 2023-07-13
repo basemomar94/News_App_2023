@@ -61,6 +61,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), NewsAdapter.NewsInterf
     }
 
     private fun populateRv(articlesArrayList: List<Article>) {
+        binding?.progressBar?.visibility =View.GONE
         binding?.rvArticles?.adapter = NewsAdapter(articlesArrayList, this)
         binding?.rvArticles?.layoutManager = LinearLayoutManager(requireContext())
         binding?.rvArticles?.setHasFixedSize(true)
