@@ -67,6 +67,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), NewsAdapter.NewsInterf
     }
 
     override fun openDetails(article: Article, position: Int) {
-      
+
     }
 }

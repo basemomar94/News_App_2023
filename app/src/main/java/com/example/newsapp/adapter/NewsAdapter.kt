@@ -31,7 +31,7 @@ class NewsAdapter(
         val article = articleArrayList[position]
         holder.binding.tvArticleTitle.text = article.title
         holder.binding.tvDate.text = article.publishedAt
-        holder.binding.tvSource.text = article.publishedAt
+        holder.binding.tvSource.text = article.source.name
         holder.binding.tvArticleDescription.text = article.description
         Glide.with(holder.binding.root.context).load(article.urlToImage)
             .into(holder.binding.ivArticleImage)
