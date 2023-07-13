@@ -13,6 +13,9 @@ object Constants {
     const val TECH_CRUNCH_SOURCE = "techcrunch"
     const val ESPN_SOURCE = "espn"
     const val NATIONAL_GEOGRAPHIC_SOURCE = "national-geographic"
+    const val ARTICLE_URL_BUNDLE = "article_url"
+    const val PREF_NAME = "news_app_pref"
+    const val NEWS_SOURCE = "news_source"
 
     val newsSources = listOf(
         BBC_NEWS_SOURCE, CNN_SOURCE, THE_NEW_YORK_TIMES_SOURCE,

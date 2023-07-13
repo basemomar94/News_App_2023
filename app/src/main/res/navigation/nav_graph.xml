@@ -10,8 +10,13 @@
         tools:layout="@layout/fragment_home"
         android:id="@+id/homeFragment"
         android:name="com.example.newsapp.ui.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
     <fragment
+        tools:layout="@layout/fragment_splash"
         android:id="@+id/splashFragment"
         android:name="SplashFragment"
         android:label="SplashFragment" >
@@ -19,4 +24,9 @@
             android:id="@+id/action_splashFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        tools:layout="@layout/fragment_article"
+        android:id="@+id/articleFragment"
+        android:name="com.example.newsapp.ui.ArticleFragment"
+        android:label="ArticleFragment" />
 </navigation>

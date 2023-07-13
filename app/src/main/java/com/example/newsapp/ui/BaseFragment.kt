@@ -9,7 +9,7 @@ import androidx.viewbinding.ViewBinding
 import androidx.viewbinding.ViewBindings
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
-    private var _binding: VB? = null
+    private lateinit var _binding: VB
     val binding get() = _binding
 
     override fun onCreateView(
@@ -18,7 +18,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = inflateViewBinding(inflater, container)
-        return binding?.root
+        return binding.root
     }
 
 
