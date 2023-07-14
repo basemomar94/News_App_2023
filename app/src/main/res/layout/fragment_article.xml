@@ -4,27 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
-    >
+    android:padding="8dp">
 
-    <TextView
-        style="@style/TitleStyle"
-        android:id="@+id/tv_title"
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/native_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tv_title,detailed_image,tv_article_description,tv_article_content"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_native"
+            style=" @style/Widget.MaterialComponents.Chip.Choice "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_native" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_web"
+            style=" @style/Widget.MaterialComponents.Chip.Choice "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/web" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/TitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chip_group" />
 
     <WebView
         android:id="@+id/web_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/chip_group"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/detailed_image"
@@ -33,7 +68,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:scaleType="fitXY"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,28 +81,26 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:visibility="gone"
-        app:layout_constraintGuide_percent=".45" />
+        app:layout_constraintGuide_percent=".3" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <TextView
+        android:id="@+id/tv_article_description"
+        style="@style/TitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailed_image">
+        app:layout_constraintTop_toBottomOf="@+id/guideline2" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/news_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </ScrollView>
+    <TextView
+        android:id="@+id/tv_article_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_article_description" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -49,7 +49,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), NewsAdapter.NewsInterf
 
     private fun getArticles() = lifecycleScope.launch {
         val source = pref.getString(Constants.NEWS_SOURCE, Constants.BBC_NEWS_SOURCE)
-        Log.d(TAG,"source is $source")
+        Log.d(TAG, "source is $source")
         viewModel.getArticlesResponse(source ?: Constants.BBC_NEWS_SOURCE)
     }
 
@@ -75,8 +75,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), NewsAdapter.NewsInterf
 
     override fun openDetails(article: Article, position: Int) {
         val bundle = Bundle()
-        bundle.putString(Constants.ARTICLE_URL_BUNDLE, article.url)
-        findNavController().navigate(R.id.action_homeFragment_to_articleFragment, bundle)
+        bundle.putSerializable(Constants.ARTICLE_BUNDLE, article)
+        Log.d(TAG,"bundle is $article")
+       findNavController().navigate(R.id.action_homeFragment_to_articleFragment, bundle)
 
     }
 }

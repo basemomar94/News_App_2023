@@ -6,4 +6,6 @@
     <string name="authincation_failed">Authincation Failed</string>
     <string name="choose_news_source">Choose news source</string>
     <string name="news_source">News Source</string>
+    <string name="web">Web</string>
+    <string name="_native">Native</string>
 </resources>

@@ -70,7 +70,7 @@ class NewsSourceFragment : BaseFragment<FragmentNewsSourceBinding>(), View.OnCli
     override fun onClick(v: View?) {
         when (v?.id) {
             binding.btnSave.id -> {
-                Log.d(TAG,"clicked on save")
+                Log.d(TAG, "clicked on save")
                 pref.edit().putString(Constants.NEWS_SOURCE, selectedSource).apply()
                 findNavController().navigate(R.id.action_newsSourceFragment_to_homeFragment)
             }
