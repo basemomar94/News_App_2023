@@ -49,6 +49,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), NewsAdapter.NewsInterf
 
     private fun getArticles() = lifecycleScope.launch {
         val source = pref.getString(Constants.NEWS_SOURCE, Constants.BBC_NEWS_SOURCE)
+        binding.tvTitle.text = source
         Log.d(TAG, "source is $source")
         viewModel.getArticlesResponse(source ?: Constants.BBC_NEWS_SOURCE)
     }
