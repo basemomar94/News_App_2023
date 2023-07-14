@@ -42,7 +42,7 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding>() {
         Log.d(TAG, "selected view is web = $isWebView")
         article?.let {
             if (isWebView) {
-                populateArticleDetailsWebView(it.url)
+                it.url?.let { it1 -> populateArticleDetailsWebView(it1) }
             } else {
                 populateArticleDetailsNativeView(it)
             }
@@ -69,7 +69,7 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding>() {
     }
 
     private fun chipOnItemSelected() {
-        binding.chipGroup.setOnCheckedStateChangeListener { group, checkedIds ->
+        binding.chipGroup.setOnCheckedStateChangeListener { group, _ ->
             when (group.checkedChipId) {
                 binding.chipNative.id -> {
                     Log.d(TAG, "selected chip is false")
@@ -79,7 +79,7 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding>() {
                 binding.chipWeb.id -> {
                     Log.d(TAG, "selected chip is true")
                     pref.edit().putBoolean(Constants.IS_WEB_VIEW, true).apply()
-                    article?.let { populateArticleDetailsWebView(it.url) }
+                    article?.let { it.url?.let { it1 -> populateArticleDetailsWebView(it1) } }
                 }
             }
         }
