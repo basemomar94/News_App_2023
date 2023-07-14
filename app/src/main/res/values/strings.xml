@@ -5,4 +5,5 @@
     <string name="finger_desc">please scan your finger</string>
     <string name="authincation_failed">Authincation Failed</string>
     <string name="choose_news_source">Choose news source</string>
+    <string name="news_source">News Source</string>
 </resources>

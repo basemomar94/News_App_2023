@@ -2,6 +2,7 @@ package com.example.newsapp.ui
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,6 +49,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), NewsAdapter.NewsInterf
 
     private fun getArticles() = lifecycleScope.launch {
         val source = pref.getString(Constants.NEWS_SOURCE, Constants.BBC_NEWS_SOURCE)
+        Log.d(TAG,"source is $source")
         viewModel.getArticlesResponse(source ?: Constants.BBC_NEWS_SOURCE)
     }
 
@@ -75,5 +77,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), NewsAdapter.NewsInterf
         val bundle = Bundle()
         bundle.putString(Constants.ARTICLE_URL_BUNDLE, article.url)
         findNavController().navigate(R.id.action_homeFragment_to_articleFragment, bundle)
+
     }
 }
