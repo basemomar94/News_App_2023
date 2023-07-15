@@ -2,7 +2,6 @@ package com.example.newsapp.utils
 
 object Constants {
     const val API_URL = "https://newsapi.org/"
-    const val API_KEY = "e5095abc9bd84a259c6f0dba9a733416"
     const val BBC_NEWS_SOURCE = "bbc-news"
     const val CNN_SOURCE = "cnn"
     const val THE_NEW_YORK_TIMES_SOURCE = "the-new-york-times"

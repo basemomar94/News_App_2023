@@ -1,5 +1,6 @@
 package com.example.newsapp.data.remote
 
+import com.example.newsapp.BuildConfig
 import com.example.newsapp.models.NewsResponse
 import com.example.newsapp.utils.Constants
 import retrofit2.http.GET
@@ -12,7 +13,7 @@ interface ApiService {
     suspend fun getArticleResponse(
         @Query("sources") sources: String? = null,
         @Query("apiKey")
-        apiKey: String = Constants.API_KEY
+        apiKey: String = BuildConfig.API_KEY
     ): NewsResponse
 
 }
