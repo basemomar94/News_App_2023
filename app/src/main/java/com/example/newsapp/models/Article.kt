@@ -11,4 +11,14 @@ data class Article(
     val title: String? = "",
     val url: String? = "",
     val urlToImage: String? = ""
-) : Serializable
+) : Serializable {
+    override fun equals(other: Any?): Boolean {
+        return when (other) {
+            is Article -> {
+                (other.source == this.source && other.author == this.author && other.content == this.content && other.description == this.description && other.publishedAt == this.publishedAt && other.title == this.title && other.url == this.url && this.urlToImage == this.urlToImage)
+            }
+            else -> false
+        }
+    }
+
+}

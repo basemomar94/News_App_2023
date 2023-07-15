@@ -40,6 +40,11 @@ class NewsAdapter(
         }
     }
 
+    fun addList(_articleArrayList: List<Article>) {
+        articleArrayList = _articleArrayList
+        notifyDataSetChanged()
+    }
+
 
     interface NewsInterface {
         fun openDetails(article: Article, position: Int)
