@@ -1,7 +1,6 @@
 # News App
 
-A brief description of your Android Studio project.
-
+simple Android app for Critical Techworks Recruitment Process
 ## Description
 
 A news app that fetches news from various sources and allows users to select their preferred source. The app presents news sources as a list, featuring images, titles, sources, publication dates, and descriptions for each news item. Users can authenticate using fingerprints for added security. Upon clicking a news item, users can view the content either natively or in a web view from the news website.
