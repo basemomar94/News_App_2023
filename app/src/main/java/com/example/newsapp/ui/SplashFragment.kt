@@ -61,7 +61,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         val promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle(getString(R.string.finger_title))
             .setDescription(getString(R.string.finger_desc))
-            .setNegativeButtonText("Cancel")
+            .setNegativeButtonText(getString(R.string.cancel))
             .build()
 
         val biometricPrompt = BiometricPrompt(
@@ -78,7 +78,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
         }
 
         override fun onAuthenticationFailed() {
-            showToast(getString(R.string.authincation_failed))
+            showToast(getString(R.string.authentication_failed))
         }
 
         override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {

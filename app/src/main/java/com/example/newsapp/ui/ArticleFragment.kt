@@ -25,6 +25,7 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         article = this.requireArguments().getSerializable(Constants.ARTICLE_BUNDLE) as Article
+        Log.d(TAG,"$article")
     }
 
     override fun inflateViewBinding(

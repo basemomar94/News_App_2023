@@ -75,7 +75,4 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
 
-    //lottie for splash animation
-    implementation "com.airbnb.android:lottie:3.4.0"
-
 }

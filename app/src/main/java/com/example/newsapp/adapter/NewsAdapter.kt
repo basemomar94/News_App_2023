@@ -2,19 +2,21 @@ package com.example.newsapp.adapter
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.newsapp.databinding.ItemArticleBinding
 import com.example.newsapp.models.Article
+import com.example.newsapp.utils.DateUtil
 
 class NewsAdapter(
     var articleArrayList: List<Article>,
     val newsInterface: NewsInterface,
 ) :
     RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
-    //  private val dateTimeFormat = DateTimeUtil.getUserDateFormat()
+    private val TAG = this::class.simpleName
 
 
     class ViewHolder(val binding: ItemArticleBinding) : RecyclerView.ViewHolder(binding.root)
@@ -30,7 +32,13 @@ class NewsAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article = articleArrayList[position]
         holder.binding.tvArticleTitle.text = article.title
-        holder.binding.tvDate.text = article.publishedAt
+
+        holder.binding.tvDate.text = try {
+            DateUtil.formatDateString(article.publishedAt ?: "")
+        } catch (e: Exception) {
+            Log.d(TAG, "format exception ${e.message}")
+            article.publishedAt
+        }
         holder.binding.tvSource.text = article.source.name
         holder.binding.tvArticleDescription.text = article.description
         Glide.with(holder.binding.root.context).load(article.urlToImage)
